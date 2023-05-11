@@ -1,0 +1,94 @@
+/Calculator
+<!DOCTYPE html>
+
+<head>
+	<title>Simple Calculator Program in PHP - Tutorials Class</title>
+</head>
+
+<?php
+$first_num = $_POST['first_num'];
+$second_num = $_POST['second_num'];
+$operator = $_POST['operator'];
+$result = '';
+if (is_numeric($first_num) && is_numeric($second_num)) {
+    switch ($operator) {
+        case "Add":
+           $result = $first_num + $second_num;
+            break;
+        case "Subtract":
+           $result = $first_num - $second_num;
+            break;
+        case "Multiply":
+            $result = $first_num * $second_num;
+            break;
+        case "Divide":
+            $result = $first_num / $second_num;
+    }
+}
+
+?>
+
+<body>
+    <div id="page-wrap">
+	<h1>PHP - Simple Calculator Program</h1>
+	  <form action="" method="post" id="quiz-form">
+            <p>
+                <input type="number" name="first_num" id="first_num" required="required" value="<?php echo $first_num; ?>" /> <b>First Number</b>
+            </p>
+            <p>
+                <input type="number" name="second_num" id="second_num" required="required" value="<?php echo $second_num; ?>" /> <b>Second Number</b>
+            </p>
+            <p>
+                <input readonly="readonly" name="result" value="<?php echo $result; ?>"> <b>Result</b>
+            </p>
+            <input type="submit" name="operator" value="Add" />
+            <input type="submit" name="operator" value="Subtract" />
+            <input type="submit" name="operator" value="Multiply" />
+            <input type="submit" name="operator" value="Divide" />
+	  </form>
+    </div>
+</body>
+</html>
+
+/PALINDROME
+<?php  
+function palindrome($n){  
+$number = $n;  
+$sum = 0;  
+while(floor($number)) {  
+$rem = $number % 10;  
+$sum = $sum * 10 + $rem;  
+$number = $number/10;  
+}  
+return $sum;  
+}  
+$input = 1235321;  
+$num = palindrome($input);  
+if($input==$num){  
+echo "$input is a Palindrome number";  
+} else {  
+echo "$input is not a Palindrome";  
+}  
+?>  
+
+/FIBONACCI
+<?php  
+/* Print fiboancci series upto 12 elements. */  
+$num = 7;  
+echo "<h3>Fibonacci series using recursive function:</h3>";  
+echo "\n";  
+/* Recursive function for fibonacci series. */  
+function series($num){  
+    if($num == 0){  
+    return 0;  
+    }else if( $num == 1){  
+return 1;  
+}  else {  
+return (series($num-1) + series($num-2));  
+}   
+}  
+/* Call Function. */  
+for ($i = 0; $i < $num; $i++){  
+echo series($i);  
+echo "\n";  
+}  
